@@ -9,7 +9,7 @@ const propTypes = {
 }
 
 const defaultProps = {
-    type: '',
+    type: 'button',
     style: '',
     value: 'Hoàn thành',
     handleBtn: () => { },

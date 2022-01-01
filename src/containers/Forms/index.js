@@ -59,10 +59,8 @@ export default function Form() {
         setSections(updatedSections)
     }
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log(sections);
-        alert("submit form nè");
+    const handleSubmit = () => {
+
     }
 
     return (
