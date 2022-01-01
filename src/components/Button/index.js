@@ -19,8 +19,7 @@ const defaultProps = {
 export default function Button({ type, styleClass, value, handleBtn }) {
 
     const handleClick = (event) => {
-        event.preventDefault();
-        handleBtn();
+        handleBtn(event);
     }
 
     return (

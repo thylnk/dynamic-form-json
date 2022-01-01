@@ -29,7 +29,6 @@ const InputField = (props) => {
     let { question, type, description, defaultAnswer, required, attrs, handleChange, setError, idxSec, idxQues } = props;
 
     const [errorInput, setErrorInput] = useState(false);
-    const [isValidated, setIsValidated] = useState(false);
 
     // neu truong defaultAnswer la null thi -> ''
     defaultAnswer = (defaultAnswer === null) ? '' : defaultAnswer;
@@ -37,25 +36,24 @@ const InputField = (props) => {
     const handleError = (event) => {
         let error = null;
         const value = event.target.value;
-        if (!isValidated) {
-            if (required) {
-                error = validation.required(value);
+
+        if (required) {
+            error = validation.required(value);
+            setErrorInput(error);
+            // null thi ktra tiep do dai cua value co thoa khong
+            if (!error) {
+                error = (type === inputType.number) ? validation.number(value, attrs) : validation.text(value, attrs);
+                // setErrorInput
                 setErrorInput(error);
-                // null thi ktra tiep do dai cua value co thoa khong
-                if (!error) {
-                    error = (type === inputType.number) ? validation.number(value, attrs) : validation.text(value, attrs);
-                    // setErrorInput
-                    setErrorInput(error);
-                }
-                // setError de submitForm hay khong
-                setError((error) ? true : false);
             }
-            if (!error) setIsValidated(true);
+            // setError de submitForm hay khong
+            setError((error) ? true : false);
         }
+
     }
 
     const onChange = (event) => {
-        handleChange(event, idxSec, idxQues, type);
+        handleChange(event, idxSec, idxQues, type, attrs);
     }
 
     return (

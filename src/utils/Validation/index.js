@@ -25,7 +25,7 @@ export const validateNumber = (value, attrs) => {
             }
         }
     }
-    return null;
+    return "Trường này chỉ cho phép nhập số!"
 };
 
 export const validateRequired = (value) => {

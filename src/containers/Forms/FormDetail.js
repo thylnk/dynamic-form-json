@@ -10,7 +10,6 @@ const propTypes = {
     description: PropTypes.string,
     setError: PropTypes.func,
     handleChange: PropTypes.func.isRequired,
-    // handleRadio: PropTypes.func.isRequired,
 }
 
 const defaultProps = {
