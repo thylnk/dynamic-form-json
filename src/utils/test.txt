@@ -1,0 +1,52 @@
+{/* <div className='form-content'>
+    <h2>Khảo sát sơ bộ</h2>
+    <div className='input-group'>
+        <label htmlFor="name">Bạn tên gì?</label>
+        <input type="text" name="name" />
+    </div>
+    <div className='input-group'>
+        <label htmlFor="name">Bạn tên gì?</label>
+        <input type="text" name="name" />
+    </div>
+    <div className='input-group'>
+        <label htmlFor="name">Bạn tên gì?</label>
+        <input type="text" name="name" />
+        <span className='error'><i className='fas fa-exclamation-triangle'></i>Ở đây phải nhập số</span>
+    </div>
+    <div className='input-group'>
+        <label htmlFor="generation">Các bạn đã tham gia GDSC được bao lâu rồi?
+        </label>
+        <span className='description'>Thời gian các bạn tham gia GDSC, tính theo thế hệ (generation)
+        </span>
+        <div className='input-group'>
+            <input type="radio" id="huey" name="drone" value="huey" />
+            <label htmlFor="huey">Huey</label>
+        </div>
+        <div className='input-group'>
+            <input type="radio" id="huey" name="drone" value="huey" />
+            <label htmlFor="huey">Huey</label>
+        </div>
+        <div className='input-group'>
+            <input type="radio" id="huey" name="drone" value="huey" />
+            <label htmlFor="huey">Huey</label>
+        </div>
+    </div>
+    <div className='input-group'>
+        <label htmlFor="generation">Các bạn đã tham gia GDSC được bao lâu rồi?
+        </label>
+        <span className='description'>Thời gian các bạn tham gia GDSC, tính theo thế hệ (generation)
+        </span>
+        <div className='input-group'>
+            <input type="radio" id="huey" name="drone" value="huey" />
+            <label htmlFor="huey">Huey</label>
+        </div>
+        <div className='input-group'>
+            <input type="radio" id="huey" name="drone" value="huey" />
+            <label htmlFor="huey">Huey</label>
+        </div>
+        <div className='input-group'>
+            <input type="radio" id="huey" name="drone" value="huey" />
+            <label htmlFor="huey">Huey</label>
+        </div>
+    </div>
+</div> */}
