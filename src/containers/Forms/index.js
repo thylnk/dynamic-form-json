@@ -4,7 +4,7 @@ import Button from '../../components/Button';
 import '../../assets/style.css';
 import FormDetail from '../Forms/FormDetail';
 import { inputType } from '../../utils/Enum/inputType';
-import { validateNumber } from '../../utils/Validation';
+import { validateNumber, validateText } from '../../utils/Validation';
 
 export default function Form() {
 
@@ -29,31 +29,45 @@ export default function Form() {
         fetchData();
     }, [])
 
+    const checkError = () => {
+        let arrQuestions = sections[step - 1].questions;
+
+        for (let item in arrQuestions) {
+            if (!arrQuestions[item].defaultAnswer) {
+                setError(true);
+                return;
+            }
+            else {
+                setError(false);
+            }
+        }
+        return error;
+    }
+
     const nextStep = (e) => {
         e.preventDefault();
+        checkError();
         let currentStep = step;
-        if (error || currentStep === sections.length) {
-            alert("Bạn chưa điền thông tin hoặc thông tin không hợp lệ!");
-            return;
+        if (!error) {
+            setStep(currentStep + 1);
         }
-        setStep(currentStep + 1);
-        setError(true);
     }
 
     const prevStep = (e) => {
         e.preventDefault();
         let currentStep = step;
-        if (currentStep > 1) {
+        if (!error && currentStep > 1) {
             setStep(currentStep - 1);
         }
     }
 
     const handleChange = (e, idxSec, idxQues, type, attrs) => {
-        const { value } = e.target;
-
+        let { value } = e.target;
+        let result = null;
         // kiem tra loi
-        if (type === inputType.number) {
-            console.log(validateNumber(value, attrs));
+        result = (type === inputType.number) ? validateNumber(value, attrs) : validateText(value, attrs);
+        if (result !== null) {
+            value = null;
         }
 
         let updatedSections = [...sections];
@@ -68,10 +82,7 @@ export default function Form() {
 
     const handleSubmit = function (e) {
         e.preventDefault();
-        if (error) {
-            alert('Bạn chưa điền đủ thông tin hoặc thông tin không hợp lệ!');
-        }
-        else {
+        if (checkError() === false) {
             console.log(sections);
             alert('Submit form nè');
         }
