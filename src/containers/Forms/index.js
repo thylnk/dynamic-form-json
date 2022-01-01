@@ -85,6 +85,7 @@ export default function Form() {
         if (checkError() === false) {
             console.log(sections);
             alert('Submit form nè');
+            window.location.reload();
         }
     }
 
