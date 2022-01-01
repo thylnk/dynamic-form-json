@@ -22,8 +22,9 @@ const defaultProps = {
     setError: () => { },
 }
 
-export default function Radio({ question, type, description, defaultAnswer, required, options, setError }) {
+export default function Radio(props) {
 
+    let { question, type, description, defaultAnswer, required, options, setError, handleChange, idxSec, idxQues } = props;
     // neu truong defaultAnswer la null thi -> ''
     defaultAnswer = (defaultAnswer === null) ? '' : defaultAnswer;
 
@@ -37,6 +38,11 @@ export default function Radio({ question, type, description, defaultAnswer, requ
             setErrorInput(error);
             setError((error) ? true : false);
         }
+    }
+
+    const onChange = (event) => {
+        handleChange(event, idxSec, idxQues, type);
+        // console.log(type)
     }
 
     return (
@@ -54,6 +60,7 @@ export default function Radio({ question, type, description, defaultAnswer, requ
                                     <input type='radio' name={question} value={item.value}
                                         defaultChecked={defaultAnswer === item.value}
                                         onBlur={(event) => handleError(event)}
+                                        onChange={onChange}
                                     />
                                     <label>{item.text}</label>
                                 </div>

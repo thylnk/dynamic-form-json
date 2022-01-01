@@ -10,6 +10,7 @@ const propTypes = {
     description: PropTypes.string,
     setError: PropTypes.func,
     handleChange: PropTypes.func.isRequired,
+    handleRadio: PropTypes.func.isRequired,
 }
 
 const defaultProps = {
@@ -19,7 +20,7 @@ const defaultProps = {
     setError: () => { },
 }
 
-export default function FormDetail({ title, description, questions, setError, handleChange, idxSec }) {
+export default function FormDetail({ title, description, questions, setError, handleChange, handleRadio, idxSec }) {
 
     return (
         <div className='form-content'>
@@ -35,7 +36,11 @@ export default function FormDetail({ title, description, questions, setError, ha
                             defaultAnswer={item.defaultAnswer}
                             required={item.required}
                             options={item.options}
-                            setError={setError} />
+                            setError={setError}
+                            // handleRadio={handleRadio}
+                            handleChange={handleChange}
+                            idxSec={idxSec}
+                            idxQues={index} />
                     }
                     else {
                         return (

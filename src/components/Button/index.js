@@ -24,7 +24,7 @@ export default function Button({ type, styleClass, value, handleBtn }) {
     }
 
     return (
-        <button type={type} className={`btn ${styleClass}`} onClick={handleClick}>{value}</button>
+        <button type={type} className={`btn ${styleClass}`} onClick={handleClick} value={value}>{value}</button>
     )
 }
 

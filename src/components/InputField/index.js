@@ -55,7 +55,8 @@ const InputField = (props) => {
     }
 
     const onChange = (event) => {
-        handleChange(event, idxSec, idxQues);
+        handleChange(event, idxSec, idxQues, type);
+
     }
 
     return (
